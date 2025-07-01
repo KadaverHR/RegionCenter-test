@@ -1,0 +1,18 @@
+<li class="variants__item">
+  <a class="variants__link" href="http://">
+    <picture>
+      <source srcset="{{ item.img | replace('.jpg', '.webp') }}" type="image/webp">
+      <img class="variants__img" src="{{ item.img }}" alt="">
+    </picture>
+    <div class="variants__content">
+      <h3 class="variants__title">{{ item.title }}</h3>
+      <p class="variants__description">{{ item.desc }}</p>
+      <p class="variants__price">
+        Цена от 
+        <span class="variants__price-title"> {{ item.price }} </span>
+        ₽/м2
+      </p>
+    </div>
+
+  </a>
+</li>

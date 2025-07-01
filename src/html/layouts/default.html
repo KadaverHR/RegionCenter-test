@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ meta_description }}">
+  <meta name="test" content="">
+  <!--    <script src="bootstrap/dist/js/bootstrap"></script>-->
+
+  <!-- <link rel="stylesheet" type="text/css" href="assets/css/main.min.css"> -->
+
+
+  {% for style in libsCss %}
+  <link rel="stylesheet" type="text/css" href="assets/css/libs/{{ style }}.css">{% endfor %}
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  {% for lib in libsJs %}
+  <script defer src="assets/libs/{{ lib }}"></script>{% endfor %}
+
+  <script defer src="https://api-maps.yandex.ru/v3/?apikey=71b2368b-427a-4d7a-8d3a-a27bbb3be2eb&lang=ru_RU"></script>
+  <script defer src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=71b2368b-427a-4d7a-8d3a-a27bbb3be2eb&lang>"
+    type="text/javascript"></script>
+  <!-- <script defer src="assets/libs/app.min.js"></script> -->
+  <script defer src="assets/js/app.js"></script>
+
+</head>
+
+<body {% if bodyClass %} class="{{ bodyClass }} body" {% endif %} id="body">
+
+
+  {% include "includes/header.html" %}
+
+  {% block content %}{% endblock %}
+
+  {% include "includes/footer.html" %}
+
+
+</body>
+
+</html>

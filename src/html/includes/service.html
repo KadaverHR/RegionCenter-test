@@ -1,0 +1,17 @@
+<li class="services__item">
+  <a class="services__link" href="">
+    <picture>
+      <source srcset="{{ item.img | replace('.jpg', '.webp') }}" type="image/webp">
+      <img src="{{ item.img }}" alt="">
+    </picture>
+    <div class="services__content">
+      <h3 class="services__title">
+        {{item.title}}
+      </h3>
+      <button class="services__btn">
+        <span class="services__text">Заказать</span>
+        <span class="services__text-hover">Подбронее</span>
+      </button>
+    </div>
+  </a>
+</li>
