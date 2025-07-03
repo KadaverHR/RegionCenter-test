@@ -7,12 +7,16 @@
     <div class="variants__content">
       <h3 class="variants__title">{{ item.title }}</h3>
       <p class="variants__description">{{ item.desc }}</p>
-      <p class="variants__price">
+      <div class="variants__price-box">
+        <p class="variants__price">
         Цена от 
-        <span class="variants__price-title"> {{ item.price }} </span>
+        <span class="variants__price-title">
+            {{ item.price }}
+          </span>
         ₽/м2
       </p>
+        <button class="variants__btn">Заказать</button>
+      </div>
     </div>
-
   </a>
 </li>

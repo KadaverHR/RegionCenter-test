@@ -5,7 +5,6 @@
 
   <main class="main">
     {% include "includes/breadcrumbs.html" %}
-
     <section class="section services">
       <div class="container">
         <div class="services__box">
@@ -47,10 +46,67 @@
               {% include "includes/variant.html" %}
             {% endfor %}
             <li class="variants__item">
-              <form action=""></form>
+              {% include "includes/variant-form.html" %}
             </li>
           </ul>
         </div>
+      </div>
+    </section>
+    <section class="section ideas">
+      <div class="container">
+        <h2 class="title">
+          {% set sectionClass = "ideas" %}
+          {% for item in titles %}
+            {% if item[sectionClass] %}
+              {{ item[sectionClass] }}
+            {% endif %}
+          {% endfor %}
+        </h2>
+        <ul class="ideas__list">
+          {% for item in ideasItems %}
+            {% include "includes/idea.html" %}
+          {% endfor %}
+        </ul>
+      </div>
+
+    </section>
+    <section class="section parameters">
+      <div class="container">
+        <h2 class="title">
+          {% set sectionClass = "parameters" %}
+          {% for item in titles %}
+            {% if item[sectionClass] %}
+              {{ item[sectionClass] }}
+              <span>
+                {% if item.color %}
+                  {{ item.color }}
+                {% endif %}
+              </span>
+            {% endif %}
+          {% endfor %}
+        </h2>
+        <ul class="parameters__list">
+          {% for item in parametersItems %}
+            {% include "includes/parameter.html" %}
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+    <section class="section price">
+      <div class="container">
+        <h2 class="title">
+          {% set sectionClass = "price" %}
+          {% for item in titles %}
+            {% if item[sectionClass] %}
+              {{ item[sectionClass] }}
+            {% endif %}
+          {% endfor %}
+        </h2>
+        <ul class="price__list" >
+          {% for item in pricesItems %}
+            {% include "includes/price.html" %}
+          {% endfor %}
+        </ul>
       </div>
     </section>
   </main>

@@ -1,0 +1,14 @@
+<li class="ideas__item">
+  <div class="ideas__img-wrapper">
+    <div class="ideas__img-box">
+      <picture>
+        <source srcset="{{ item.img | replace('.jpg', '.webp') }}" type="image/webp">
+        <img class="ideas__img" src="{{ item.img }}" alt="">
+      </picture>
+      <button class="ideas__btn">Заказать</button>
+    </div>
+  </div>
+  <div class="ideas__content">
+    <h3 class="ideas__title">{{ item.title }}</h3>
+  </div>
+</li>

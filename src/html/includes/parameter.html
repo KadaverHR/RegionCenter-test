@@ -1,0 +1,22 @@
+<li class="parameters__item">
+  <div class="parameters__img-wrapper">
+    <img src="{{ item.img }}" alt="">
+  </div>
+  <div class="parameters__content">
+    <h3 class="parameters__title">
+      {{ item.title }}
+    </h3>
+    <ul class="parameters__list-box">
+      {% for list in item.itemsPrice %}
+        <li class="parameters__list-item">
+          <p class="parameters__list-title">
+            {{ list.title }}
+          </p>
+          <p class="parameters__list-price">
+           от {{ list.price }} ₽
+          </p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</li>

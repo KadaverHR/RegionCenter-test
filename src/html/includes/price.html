@@ -1,0 +1,45 @@
+<li class="prices__item">
+  <div class="prices__content">
+    <h3 class="prices__title">{{ item.title }}</h3>
+    <p class="prices__description">{{ item.desc }}</p>
+    <div class="prices__price-box">
+      <p class="prices__price">
+        <span class="prices__price-text">
+        Стоимость: 
+      </span>
+        <span class="prices__price-count">
+          {{ item.price }}
+        </span>
+        <span class="prices__price-text prices__price-text--orange">руб. кв.м.* </span>
+      </p>
+      <p class="prices__note">
+      *Цена за материалы и работы.
+      </p>
+    </div>
+  </div>
+  <div class="prices__img-box">
+    <ul class="prices__img-list">
+
+      {% for variant in item.variants %}
+        {% for img in pricesImage %}
+          {% if variant.id == img.id %}
+            <li class="prices__img-item">
+              <picture>
+                <source srcset="{{ img.img | replace('.jpg', '.webp') }}" type="image/webp">
+                <img class="prices__img" src="{{ img.img }}" alt="">
+              </picture>
+              <p class="prices__img-price">
+                <span class="prices__img-title">
+                  {{ img.title }}
+                </span>
+                <span class="prices__img-price-count">
+                  {{ variant.price }}
+                </span>
+              </p>
+            </li>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  </div>
+</li>

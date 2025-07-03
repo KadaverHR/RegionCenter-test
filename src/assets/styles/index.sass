@@ -69,6 +69,7 @@
         opacity: 0
 
 .variants
+  margin-bottom: 60px
   &__list
     display: grid
     grid-template-columns: repeat(6, 1fr)
@@ -80,10 +81,36 @@
     width: 100%
     height: 100%
     position: relative
+    &:hover, &:active, &:focus
+      .variants__btn
+        opacity: 1
+        pointer-events: all
+      .variants__price
+        opacity: 0
+      .variants__description
+        opacity: 1
+      &::before
+        opacity: 1
+      .variants__img
+        transform: scale(1.05) translate(-50%, -50%)
+    &::before
+      content: ''
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%, -50%)
+      width: 100%
+      height: 100%
+      background: rgba(0, 0, 0, 0.5)
+      opacity: 0
+      transition: opacity $anim
   &__content
-    padding: 47px 40px 30px 40px
+    padding: 70px 40px 58px 40px
     display: grid
-    gap: 40px
+    grid-template-rows: 1fr 2fr 1fr
+    gap: 10px
+    align-content: center
+    z-index: 2
   &__img
     position: absolute
     width: 100%
@@ -93,14 +120,18 @@
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
+    transition: transform $anim
   &__item
     grid-column: span 2
     grid-row: span 2
-    min-height: 572px
+    min-height: 450px
+    overflow: hidden
     &:nth-child(5n+4), &:nth-child(5n+5)
       grid-column: span 3
       grid-row: span 1
       min-height: 300px
+      .variants__content
+        padding: 60px 40px 45px 40px
   &__title
     font-family: $font-title
     font-weight: 700
@@ -112,7 +143,8 @@
     font-size: 14px
     line-height: 22px
     color: #fff
-    // opacity: 0
+    opacity: 0
+    transition: opacity $anim
   &__text
     font-family: $font-family
     font-weight: 400
@@ -133,3 +165,244 @@
     font-size: 24px
     line-height: 114%
     color: #fff
+    transition: opacity $anim
+  &__price-box
+    align-self: end
+    display: grid
+    position: relative
+  &__btn
+    position: absolute
+    background: #ff5f01
+    border-radius: 3px
+    padding: 18px 40px
+    text-transform: uppercase
+    color: #fff
+    font-size: 14px
+    display: grid
+    opacity: 0
+    pointer-events: none
+    transition: opacity $anim
+
+.variant-form
+  display: grid
+  background: #fff
+  border: 5px solid $orange-color
+  height: 100%
+  padding: 25px 30px
+  gap: 5px
+  align-items: start
+  &__title
+    display: grid
+    align-items: center
+    font-family: $font-title
+    font-weight: 700
+    font-size: 25px
+    line-height: 30px
+    text-align: center
+    color: $black-color
+  &__box
+    display: grid
+    grid-template-areas: "name name" "tel email" "service service" "message message" "btn btn"
+    gap: 15px
+    input[name="variantName"]
+      grid-area: name
+    input[name="variantTel"]
+      grid-area: tel
+    input[name="variantMail"]
+      grid-area: email
+    input[name="variantService"]
+      grid-area: service
+    textarea[name="variantMessage"]
+      grid-area: message
+    .variant-form__btn-box
+      grid-area: btn
+      display: grid
+      grid-auto-flow: column
+      gap: 15px
+      margin-top: 10px
+  &__input
+    width: 100%
+    border: 1px solid $grey-color
+    padding: 10px 16px
+    font-family: $font-family
+    font-weight: 400
+    font-size: 14px
+    line-height: 22px
+    &::placeholder
+      font-family: $font-family
+      font-size: 14px
+      color: $grey-color
+  &__confidence
+    font-family: $font-family
+    font-weight: 400
+    font-size: 12px
+    line-height: 14px
+    color: $black-color
+    &--link
+      color: $black-color
+      transition: color $anim
+      &:hover, &:active, &:focus
+        color: $orange-color
+  &__btn
+    background: $orange-color
+    padding: 10px 15px
+    text-transform: uppercase
+    color: #fff
+    font-size: 12px
+    transition: background $anim
+    &:hover, &:active, &:focus
+      background: #e15909
+
+.ideas
+  background: #fff
+  padding-top: 75px
+  padding-bottom: 80px
+  &__list
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: 30px 25px
+    margin-top: 50px
+  &__item
+    display: grid
+    gap: 3px
+    cursor: pointer
+    &:hover, &:active, &:focus
+      .ideas__btn
+        opacity: 1
+        pointer-events: all
+      .ideas__img-box
+        transform: scale(1.05)
+        &::before
+          opacity: 1
+
+  &__content
+    display: grid
+    padding: 15px 26px
+    background: $grey-color-2
+    justify-content: center
+    align-items: center
+    min-height: 70px
+  &__title
+    font-family: $font-title
+    font-weight: 700
+    font-size: 20px
+    line-height: 114%
+    color: $black-color
+    text-align: center
+  &__img-wrapper
+    position: relative
+    overflow: hidden
+    display: grid
+  &__img
+    width: 100%
+    object-fit: cover
+    max-height: 240px
+  &__img-box
+    display: grid
+    position: relative
+    transition: transform $anim
+    &::before
+      content: ''
+      background: rgba(250, 250, 250, 0.5)
+      width: 100%
+      height: 100%
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%, -50%)
+      transition: opacity $anim
+      opacity: 0
+  &__btn
+    position: absolute
+    background: $blue-color
+    border-radius: 3px
+    padding: 18px 30px
+    text-transform: uppercase
+    color: #fff
+    font-size: 14px
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+    pointer-events: none
+    opacity: 0
+    transition: opacity $anim
+
+.parameters
+  padding-top: 75px
+  padding-bottom: 40px
+  .title
+    display: inline
+    text-align: center
+    span
+      color: $orange-color
+  &__list
+    padding-top: 40px
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    gap: 30px
+  &__item
+    display: grid
+    grid-template-rows: repeat(2, 1fr) 2fr
+    grid-template-columns: 1fr
+  &__img-wrapper
+    grid-row: 1/3
+    grid-column: 1/2
+    z-index: 1
+    position: relative
+    justify-self: center
+    margin-left: 30px
+    margin-right: 30px
+  &__content
+    display: grid
+    grid-row: 2 / 4
+    grid-column: 1 / 2
+    padding: 47% 30px 50px 30px
+    background: #fff
+    border-radius: 3px
+    gap: 28px
+    z-index: 0
+    position: relative
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.15)
+    align-items: start
+    align-content: start
+  &__title
+    font-family: $font-title
+    font-weight: 700
+    font-size: 25px
+    line-height: 114%
+    color: $black-color
+    text-align: center
+  &__list-box
+    display: grid
+    gap: 16px
+  &__list-item
+    display: grid
+    grid-auto-flow: column
+    justify-content: space-between
+    gap: 15px
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      width: 100%
+      border-bottom: 1px dashed $black-color
+      bottom: -10px
+      left: 50%
+      transform: translateX(-50%)
+    &:last-child
+      &::before
+        display: none
+  &__list-title
+    font-family: $font-family
+    font-weight: 400
+    font-size: 14px
+    line-height: 114%
+    color: $black-color
+  &__list-price
+    font-family: $font-family
+    font-weight: 700
+    font-size: 14px
+    line-height: 114%
+    color: $blue-color
+.price 
+  padding-top: 35px
