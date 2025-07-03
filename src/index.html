@@ -92,7 +92,7 @@
         </ul>
       </div>
     </section>
-    <section class="section price">
+    <section class="section prices">
       <div class="container">
         <h2 class="title">
           {% set sectionClass = "price" %}
@@ -102,7 +102,7 @@
             {% endif %}
           {% endfor %}
         </h2>
-        <ul class="price__list" >
+        <ul class="prices__list" >
           {% for item in pricesItems %}
             {% include "includes/price.html" %}
           {% endfor %}

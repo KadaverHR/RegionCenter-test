@@ -1,4 +1,4 @@
-// box-shadow: 0px 0px 50px 0px rgba(32, 32, 32, 0.25)
+@use  "_vars" as *
 .main
   position: relative
   z-index: 0
@@ -17,8 +17,6 @@
     gap: 32px
     padding-top: 60px
     padding-bottom: 40px
-  &__item
-
   &__content
     padding: 37px 20px
     display: grid
@@ -404,5 +402,79 @@
     font-size: 14px
     line-height: 114%
     color: $blue-color
-.price 
+.prices
   padding-top: 35px
+  padding-bottom: 80px
+  &__list
+    padding-top: 58px
+    display: grid
+    gap: 30px
+  &__item
+    display: grid
+    grid-template-columns: 473px 1fr
+  &__img-box
+    padding: 41px
+    display: grid
+    background: #2f3a81
+    align-items: center
+    justify-content: center
+  &__img-list
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    align-items: baseline
+    gap: 30px
+    justify-content: center
+  &__img-item
+    display: grid
+    gap: 10px
+    justify-content: center
+  &__img-price
+    text-align: center
+    font-family: $font-family
+    font-weight: 400
+    font-size: 20px
+    line-height: 114%
+    color: #fff
+  &__img-price-count
+    font-weight: 700
+  &__content
+    margin-top: 30px
+    margin-bottom: 30px
+    background: #fff
+    display: grid
+    padding: 50px
+    gap: 20px
+  &__title
+    font-family: $font-title
+    font-weight: 700
+    font-size: 25px
+    line-height: 114%
+    color: $black-color
+  &__description
+    font-family: $font-family
+    font-weight: 400
+    font-size: 14px
+    line-height: 114%
+    color: $black-color
+    &.orange
+      color: $orange-color
+  &__price-count
+    font-family: $font-family
+    font-weight: 700
+    font-size: 24px
+    line-height: 114%
+    color: $orange-color
+  &__btn
+    margin-top: 30px
+    display: grid
+    justify-content: center
+    justify-self: start
+    align-items: center
+    background: $orange-color
+    padding: 15px 33px
+    text-transform: uppercase
+    color: #fff
+    font-size: 14px
+    transition: background $anim
+    &:hover, &:active, &:focus
+      background: #e15909
